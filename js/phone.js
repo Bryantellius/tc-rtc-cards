@@ -9,13 +9,13 @@ let isCompassAttached = false;
 
 // listen for the DOM elements to be loaded
 document.addEventListener(
-  "load",
+  "DOMContentLoaded",
   () => {
     // initialize cards
     createCards(10);
 
     // connect to the websocket server
-    socket = io.connect(serverUrl);
+    socket = io.connect(serverUrl, { transports: ["websocket"] });
 
     // emit a message detailing a phone connection
     socket.emit("phone-connect", computerId);

@@ -38,15 +38,16 @@ const server = http.createServer((req, res) => {
       res.end();
     } else {
       res.writeHead(200, { "Content-Type": contentType });
-      res.end(content, "utf-8");
+      res.end(data, "utf-8");
     }
   });
 });
 
 server.listen(3000, () => console.log(`Server listening on port 3000`));
-const io = require("socket.io")(server);
 
-const realTimeListener = io.listen(server);
+const { Server } = require("socket.io");
+
+const realTimeListener = new Server(server);
 
 // Stores computer interface connections
 const computerSockets = {};
@@ -56,6 +57,7 @@ realTimeListener.on("connection", (socket) => {
   socket.on("computer-connect", (computerId) => {
     computerSockets[computerId] = socket;
     socket.computerId = computerId;
+    console.log("computer-connect", computerId)
   });
 
   // listens for a connection from a phone/mobile device
@@ -63,7 +65,8 @@ realTimeListener.on("connection", (socket) => {
     const computerSocket = computerSockets[computerId];
     if (computerSocket) {
       // emits a message that a phone connected
-      computerSocket.emit("phone-emit");
+      console.log("phone-connect", computerId);
+      computerSocket.emit("phone-connect");
     }
   });
 
@@ -108,8 +111,8 @@ for (let k in interfaces) {
   }
 }
 
-const opening = `Opening: http://${addresses.sort()[0]}:3000`;
+const opening = `http://${addresses.sort()[0]}:3000`;
 
-console.log(opening);
+console.log(`Opening at: ${opening}`);
 
 open(opening);

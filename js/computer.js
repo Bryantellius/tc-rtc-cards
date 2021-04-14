@@ -1,13 +1,14 @@
 const serverUrl = window.location.host;
-const tableId = generateId();
+let computerId = generateId();
 let id = 0;
 
 // listen for the doms elements to be loaded
 document.addEventListener(
-  "load",
+  "DOMContentLoaded",
   () => {
+    console.log("document onload");
     // connect to the websocket server
-    const socket = io.connect(serverUrl);
+    const socket = io.connect(serverUrl, { transports: ["websocket"] });
 
     // emit a message detailing the computer connection
     socket.emit("computer-connect", computerId);
@@ -40,6 +41,7 @@ function phoneMoved(angle) {
 }
 
 function throwCard(card) {
+  console.log("inside throwCard");
   // adds the throw card to the computer display
   let cardId = `card${id++}`;
   addCard(cardId, card.angle, card.suit, card.rank);
@@ -60,10 +62,12 @@ function phoneConnected() {
 }
 
 function addCard(id, angle, suit, rank) {
+  console.log("card angle: ", angle);
   document.body.innerHTML += `<div class="path" style="transform: rotate(${angle}deg)"><div id="${id}" class="card ${suit} rank${rank}"><div class="face"/></div></div>`;
 }
 
 function qrCodeGenerator(value, elementId) {
+  console.log("Inside qrCodeGenerator");
   const qr = qrcode(4, "L");
   qr.addData(value);
   qr.make();
@@ -72,7 +76,7 @@ function qrCodeGenerator(value, elementId) {
 
 function generateId() {
   // generates a random 5 character id
-  const d = new Date().getTime();
+  let d = new Date().getTime();
   if (window.performance && typeof window.performance.now === "function") {
     d += performance.now();
   }
