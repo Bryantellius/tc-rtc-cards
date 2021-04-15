@@ -51,12 +51,14 @@ see licence: https://github.com/pakastin/deck-of-cards/blob/master/LICENSE
 .card.spades,
 .card.clubs,
 .card.joker {
-  color: #000;
+  color: white;
+  background-image: linear-gradient(#0094c8, purple);
 }
 .card.hearts,
 .card.diamonds,
 .card.joker.rank3 {
-  color: #d40000;
+  color: white;
+  background-image: linear-gradient(#0094c8, purple);
 }
 .card.joker.rank1:before,
 .card.joker.rank2:before,

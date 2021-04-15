@@ -70,7 +70,7 @@ function addCard() {
   cards.push(card);
 
   document.getElementById("touchHandler").innerHTML += `<div class="item">
-        <div id="${card.id}" class="card ${card.suit} rand${card.rank}">
+        <div id="${card.id}" class="card ${card.suit} rank${card.rank}">
             <div class="face"/>
         </div>
     </div>`;
