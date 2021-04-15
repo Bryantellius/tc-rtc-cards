@@ -2,7 +2,7 @@ const cards = [];
 let id = 0;
 let socket = null;
 let serverUrl = `${window.location.hostname}:${window.location.port}`;
-let computerId = window.location.pathname.substring(4);
+let computerId = window.location.href.slice(window.location.href.length - 5);
 let compassDiff = 0;
 let compassDir = 0;
 let isCompassAttached = false;
@@ -13,10 +13,8 @@ document.addEventListener(
   () => {
     // initialize cards
     createCards(10);
-
     // connect to the websocket server
     socket = io.connect(serverUrl, { transports: ["websocket"] });
-
     // emit a message detailing a phone connection
     socket.emit("phone-connect", computerId);
 
