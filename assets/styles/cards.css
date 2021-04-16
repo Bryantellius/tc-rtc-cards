@@ -52,13 +52,13 @@ see licence: https://github.com/pakastin/deck-of-cards/blob/master/LICENSE
 .card.clubs,
 .card.joker {
   color: white;
-  background-image: linear-gradient(#0094c8, purple);
+  background-image: linear-gradient(45deg, #fff, #ccc, 35%);
 }
 .card.hearts,
 .card.diamonds,
 .card.joker.rank3 {
   color: white;
-  background-image: linear-gradient(#0094c8, purple);
+  background-image: linear-gradient(45deg, #fff, #ccc, 35%);
 }
 .card.joker.rank1:before,
 .card.joker.rank2:before,
@@ -74,6 +74,34 @@ see licence: https://github.com/pakastin/deck-of-cards/blob/master/LICENSE
   width: 0.5rem;
 }
 .card.rank1:before,
+.card.rank1:after,
+.card.rank2:before,
+.card.rank2:after,
+.card.rank3:before,
+.card.rank3:after,
+.card.rank4:before,
+.card.rank4:after,
+.card.rank5:before,
+.card.rank5:after,
+.card.rank6:before,
+.card.rank6:after,
+.card.rank7:before,
+.card.rank7:after,
+.card.rank8:before,
+.card.rank8:after,
+.card.rank9:before,
+.card.rank9:after,
+.card.rank10:before,
+.card.rank10:after,
+.card.rank11:before,
+.card.rank11:after,
+.card.rank12:before,
+.card.rank12:after,
+.card.rank13:before,
+.card.rank13:after {
+  content: url(/assets/img/favicon.png);
+}
+/* .card.rank1:before,
 .card.rank1:after {
   content: "A";
 }
@@ -124,45 +152,45 @@ see licence: https://github.com/pakastin/deck-of-cards/blob/master/LICENSE
 .card.rank13:before,
 .card.rank13:after {
   content: "K";
-}
+} */
 .card.spades.rank1 .face {
-  background-image: url("/assets/img/cardfaces/0_1.svg");
+  background-image: url("/assets/img/cardfaces/ben-headshot_sm.svg");
 }
 .card.spades.rank2 .face {
-  background-image: url("/assets/img/cardfaces/0_2.svg");
+  background-image: url("/assets/img/cardfaces/ben-headshot_sm.svg");
 }
 .card.spades.rank3 .face {
-  background-image: url("/assets/img/cardfaces/0_3.svg");
+  background-image: url("/assets/img/cardfaces/ben-headshot_sm.svg");
 }
 .card.spades.rank4 .face {
-  background-image: url("/assets/img/cardfaces/0_4.svg");
+  background-image: url("/assets/img/cardfaces/ben-headshot_sm.svg");
 }
 .card.spades.rank5 .face {
-  background-image: url("/assets/img/cardfaces/0_5.svg");
+  background-image: url("/assets/img/cardfaces/ben-headshot_sm.svg");
 }
 .card.spades.rank6 .face {
-  background-image: url("/assets/img/cardfaces/0_6.svg");
+  background-image: url("/assets/img/cardfaces/ben-headshot_sm.svg");
 }
 .card.spades.rank7 .face {
-  background-image: url("/assets/img/cardfaces/0_7.svg");
+  background-image: url("/assets/img/cardfaces/ben-headshot_sm.svg");
 }
 .card.spades.rank8 .face {
-  background-image: url("/assets/img/cardfaces/0_8.svg");
+  background-image: url("/assets/img/cardfaces/0ben-headshot_sm.svg");
 }
 .card.spades.rank9 .face {
-  background-image: url("/assets/img/cardfaces/0_9.svg");
+  background-image: url("/assets/img/cardfaces/ben-headshot_sm.svg");
 }
 .card.spades.rank10 .face {
-  background-image: url("/assets/img/cardfaces/0_10.svg");
+  background-image: url("/assets/img/cardfaces/ben-headshot_sm.svg");
 }
 .card.spades.rank11 .face {
-  background-image: url("/assets/img/cardfaces/0_11.svg");
+  background-image: url("/assets/img/cardfaces/ben-headshot_sm.svg");
 }
 .card.spades.rank12 .face {
-  background-image: url("/assets/img/cardfaces/0_12.svg");
+  background-image: url("/assets/img/cardfaces/ben-headshot_sm.svg");
 }
 .card.spades.rank13 .face {
-  background-image: url("/assets/img/cardfaces/0_13.svg");
+  background-image: url("/assets/img/cardfaces/ben-headshot_sm.svg");
 }
 .card.hearts.rank1 .face {
   background-image: url("/assets/img/cardfaces/1_1.svg");
