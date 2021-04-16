@@ -28,26 +28,31 @@ document.addEventListener(
     );
 
     // Obtain a new *world-oriented* Full Tilt JS DeviceOrientation Promise
-    const promise = FULLTILT.getDeviceOrientation({ type: "world" });
+    var promise = FULLTILT.getDeviceOrientation({ type: "world" });
 
     // Wait for Promise result
     promise
-      .then((deviceOrientation) => {
+      .then(function (deviceOrientation) {
         // Device Orientation Events are supported
-        console.log(deviceOrientation);
+
         // Register a callback to run every time a new
         // deviceorientation event is fired by the browser.
-        deviceOrientation.listen(() => {
+        deviceOrientation.listen(function () {
           // Get the current *screen-adjusted* device orientation angles
-          const currentOrientation = deviceOrientation.getScreenAdjustedEuler();
-          console.log(currentOrientation);
+          var currentOrientation = deviceOrientation.getScreenAdjustedEuler();
+
           // Calculate the current compass heading that the user is 'looking at' (in degrees)
-          compassDir = (180 - currentOrientation.alpha) * 2;
+          compassDir = 360 - currentOrientation.alpha;
         });
       })
-      .catch((err) => {
+      .catch(function (errorMessage) {
         // Device Orientation Events are not supported
-        console.log(err);
+        console.log(errorMessage);
+        // Implement some fallback controls here...
+        let errorFlash = document.getElementById("errorFlash");
+        errorFlash.textContent = errorMessage;
+        errorFlash.classList.add("show");
+        setTimeout(() => errorFlash.classList.remove("show"), 5000);
       });
 
     // update phone direction every 100ms

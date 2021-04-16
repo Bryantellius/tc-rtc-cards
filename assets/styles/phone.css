@@ -79,3 +79,18 @@ body {
     transform: translateY(-200%); 
     transition: all .40s ease-in-out;
 }
+
+#errorFlash {
+    display: none;
+    background-color: tomato;
+    color: white;
+    font-size: 0.25rem;
+    text-align: center;
+    position: fixed;
+    top: 0px;
+    width: 100%;
+}
+
+.show {
+    display: block !important;
+}
