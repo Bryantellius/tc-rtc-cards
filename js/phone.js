@@ -34,15 +34,15 @@ document.addEventListener(
     promise
       .then((deviceOrientation) => {
         // Device Orientation Events are supported
-
+        console.log(deviceOrientation);
         // Register a callback to run every time a new
         // deviceorientation event is fired by the browser.
         deviceOrientation.listen(() => {
           // Get the current *screen-adjusted* device orientation angles
           const currentOrientation = deviceOrientation.getScreenAdjustedEuler();
-
+          console.log(currentOrientation);
           // Calculate the current compass heading that the user is 'looking at' (in degrees)
-          compassDirection = (180 - currentOrientation.alpha) * 2;
+          compassDir = (180 - currentOrientation.alpha) * 2;
         });
       })
       .catch((err) => {
@@ -155,7 +155,6 @@ function getRandomNumber(min, max) {
 
 function getCompassDirection() {
   let val = (compassDir - compassDiff + 360) % 360;
-  let dir = 0;
   if (val >= 0 && val < 180) {
     return Math.min(val, 90);
   } else {

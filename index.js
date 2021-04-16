@@ -57,7 +57,7 @@ realTimeListener.on("connection", (socket) => {
   socket.on("computer-connect", (computerId) => {
     computerSockets[computerId] = socket;
     socket.computerId = computerId;
-    console.log("computer-connect", computerId)
+    console.log("computer-connect", computerId);
   });
 
   // listens for a connection from a phone/mobile device
@@ -72,6 +72,7 @@ realTimeListener.on("connection", (socket) => {
 
   // listens for phone/device movements
   socket.on("phone-move", (data) => {
+    console.log("server phone-move: ", data.angle);
     const computerSocket = computerSockets[data.computerId];
     if (computerSocket) {
       // emits a message detailing the phone's current angle

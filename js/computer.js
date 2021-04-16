@@ -36,12 +36,13 @@ document.addEventListener(
 
 function phoneMoved(angle) {
   // change the angle of the phone direction indicator
+  console.log("phoneMoved: angle: ", angle);
   const path = document.querySelector("#phone-move.path");
   path.style = `transform: rotate(${angle}deg)`;
 }
 
 function throwCard(card) {
-  console.log("inside throwCard");
+  console.log("inside throwCard: card: ", card);
   // adds the throw card to the computer display
   let cardId = `card${id++}`;
   addCard(cardId, card.angle, card.suit, card.rank);
