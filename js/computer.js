@@ -23,7 +23,7 @@ document.addEventListener(
     socket.on("phone-throw-card", throwCard);
 
     // generate qrcode
-    const url = `https://${serverUrl}/?id=${computerId}`;
+    const url = `http://${serverUrl}/?id=${computerId}`;
     qrCodeGenerator(url, "placeholder");
 
     // display the url on the dom
