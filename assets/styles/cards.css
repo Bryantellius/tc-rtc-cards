@@ -319,12 +319,43 @@ see licence: https://github.com/pakastin/deck-of-cards/blob/master/LICENSE
   background-image: url("/assets/img/cardfaces/john-headshot.svg");
 }
 
-.card.joker {
+.card.rank1 {
+  background: linear-gradient(
+    to right,
+    #7851a9,
+    #9b6dff,
+    /* #b38728, */ #CBC3E3,
+    #663399
+  );
+}
+
+.card.joker,
+.card.rank13 {
   background: linear-gradient(
     to right,
     #bf953f,
     #fcf6ba,
     /* #b38728, */ #fcf5b7,
     #aa771c
+  );
+}
+.card.joker,
+.card.rank12 {
+  background: linear-gradient(
+    to right,
+    #c0c0c0,
+    #d3d3d3,
+    /* #b38728, */ #d7d7d7,
+    #aaa9ad
+  );
+}
+.card.joker,
+.card.rank11 {
+  background: linear-gradient(
+    to right,
+    #6c541e,
+    #cd7f32,
+    /* #b38728, */ #a57164,
+    #8c7853
   );
 }
