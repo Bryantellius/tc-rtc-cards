@@ -115,4 +115,4 @@ const opening = `http://${addresses.sort()[0]}:3000`;
 
 console.log(`Opening at: ${opening}`);
 
-// open(opening);
+open(opening);
