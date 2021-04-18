@@ -72,7 +72,6 @@ realTimeListener.on("connection", (socket) => {
 
   // listens for phone/device movements
   socket.on("phone-move", (data) => {
-    console.log("server phone-move: ", data.angle);
     const computerSocket = computerSockets[data.computerId];
     if (computerSocket) {
       // emits a message detailing the phone's current angle
@@ -116,4 +115,4 @@ const opening = `http://${addresses.sort()[0]}:3000`;
 
 console.log(`Opening at: ${opening}`);
 
-open(opening);
+// open(opening);

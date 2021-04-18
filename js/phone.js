@@ -5,6 +5,8 @@ let serverUrl = `${window.location.hostname}:${window.location.port}`;
 let computerId = window.location.href.slice(window.location.href.length - 5);
 let compassDiff = 0;
 let compassDir = 0;
+let touchStartX = 0;
+let touchEndX = 0;
 let isCompassAttached = false;
 
 // listen for the DOM elements to be loaded
@@ -57,7 +59,11 @@ document.addEventListener(
 
     // update phone direction every 100ms
     setInterval(() => {
-      socket.emit("phone-move", { computerId, angle: getCompassDirection() });
+      compassDir = Math.floor(Math.random() * 180) + 1 - 90;
+      socket.emit("phone-move", {
+        computerId,
+        angle: getCompassDirection(),
+      });
     }, 100);
   },
   false
@@ -105,6 +111,8 @@ function removeCard(id, strength) {
 // ===== Swipe Events (mobile)
 function touchStart(x, y) {
   // doesn't do anything
+
+  touchStartX = Math.round(x);
 }
 
 function touchMove(e, x, y, offsetX, offsetY) {
@@ -116,6 +124,8 @@ function touchEnd(x, y, offsetX, offsetY, timeTaken) {
   if (-offsetY < 10) {
     return;
   }
+
+  touchEndX = Math.round(x);
 
   // add 'move' class to animate
   let card = cards[0];
@@ -159,7 +169,9 @@ function getRandomNumber(min, max) {
 }
 
 function getCompassDirection() {
-  let val = (compassDir - compassDiff + 360) % 360;
+  console.log("touchStartX: ", touchStartX);
+  console.log("touchEndX: ", touchEndX);
+  let val = (touchEndX - touchStartX + 360) % 360;
   if (val >= 0 && val < 180) {
     return Math.min(val, 90);
   } else {

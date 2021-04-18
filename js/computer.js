@@ -34,9 +34,9 @@ document.addEventListener(
 
 // ===== Service Functions
 
+// DEVICEORIENTATION NOT AVAILABLE OVER HTTP (localhost)
 function phoneMoved(angle) {
   // change the angle of the phone direction indicator
-  console.log("phoneMoved: angle: ", angle);
   const path = document.querySelector("#phone-move.path");
   path.style = `transform: rotate(${angle}deg)`;
 }
