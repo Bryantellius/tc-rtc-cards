@@ -1,6 +1,12 @@
 const serverUrl = window.location.host;
 let computerId = generateId();
 let id = 0;
+let standard = 0;
+let bronze = 0;
+let silver = 0;
+let gold = 0;
+let royal = 0;
+let rare = 0;
 
 // listen for the doms elements to be loaded
 document.addEventListener(
@@ -42,11 +48,12 @@ function phoneMoved(angle) {
 }
 
 function throwCard(card) {
-  console.log("inside throwCard: card: ", card);
   // adds the throw card to the computer display
   let cardId = `card${id++}`;
   addCard(cardId, card.angle, card.suit, card.rank);
-
+  changeScore(card);
+  console.log(card.suit, card.rank);
+  console.log(standard, bronze, silver, gold, royal, rare);
   // force the animation with a timeout of 100ms
   setTimeout(() => {
     const cardElement = document.getElementById(cardId);
@@ -55,6 +62,24 @@ function throwCard(card) {
       100 - card.strength
     }vh) scale(1)`;
   }, 100);
+}
+
+function changeScore(card) {
+  if (card.suit !== "joker") {
+    if (card.rank <= 15) {
+      document.getElementById("standard-count").textContent = ++standard;
+    } else if (card.rank <= 22 && card.rank >= 16) {
+      document.getElementById("bronze-count").textContent = ++bronze;
+    } else if (card.rank <= 26 && card.rank >= 23) {
+      document.getElementById("silver-count").textContent = ++silver;
+    } else if (card.rank <= 29 && card.rank >= 27) {
+      document.getElementById("gold-count").textContent = ++gold;
+    } else if (card.rank === 30) {
+      document.getElementById("royal-count").textContent = ++royal;
+    }
+  } else {
+    document.getElementById("rare-count").textContent = ++rare;
+  }
 }
 
 function phoneConnected() {

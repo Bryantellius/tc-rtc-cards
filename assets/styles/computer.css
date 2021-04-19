@@ -5,6 +5,62 @@
   https://sourceforge.net/projects/vector-cards/
 */
 
+#standard-count {
+  background-color: white;
+  color: #000;
+}
+
+#bronze-count {
+  background: linear-gradient(
+    to right,
+    #6c541e,
+    #cd7f32,
+    /* #b38728, */ #a57164,
+    #8c7853
+  );
+}
+
+#silver-count {
+  background: linear-gradient(
+    to right,
+    #c0c0c0,
+    #d3d3d3,
+    /* #b38728, */ #d7d7d7,
+    #aaa9ad
+  );
+}
+
+#gold-count {
+  background: linear-gradient(
+    to right,
+    #bf953f,
+    #fcf6ba,
+    /* #b38728, */ #fcf5b7,
+    #aa771c
+  );
+}
+
+#royal-count {
+  background: linear-gradient(
+    to right,
+    #7851a9,
+    #9b6dff,
+    /* #b38728, */ #cbc3e3,
+    #663399
+  );
+}
+
+#rare-count {
+  background: linear-gradient(
+    to bottom right,
+    tomato,
+    orange,
+    yellow,
+    royalblue,
+    #663399
+  );
+}
+
 .card {
   /* out of screen: translateY viewport height */
   transform: translateY(100vh) scale(1.5);
@@ -44,6 +100,23 @@ body {
   padding: 0;
   background-image: linear-gradient(#333, #000);
   overflow: hidden;
+}
+
+.mb-3 {
+  margin-bottom: 3rem;
+}
+
+.score-container > h5 {
+  margin: 0.5rem;
+}
+
+.score-container {
+  position: fixed;
+  width: fit-content;
+  left: 1rem;
+  top: 1rem;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;
 }
 
 #waiting-for-device {

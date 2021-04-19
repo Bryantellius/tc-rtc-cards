@@ -147,13 +147,32 @@ function touchEnd(x, y, offsetX, offsetY, timeTaken) {
 function getRandomCard() {
   return {
     suit: getRandomSuit(),
-    rank: getRandomNumber(1, 13),
+    rank: getRandomNumber(1, 30),
   };
 }
 
 function getRandomSuit() {
-  const suits = ["hearts", "spades", "clubs", "diamonds"];
-  return suits[getRandomNumber(0, 3)];
+  let odds = Math.floor(Math.random() * 1000) + 1;
+  let joker = 950 <= odds && odds <= 999;
+  let ultraRare = odds === 1000;
+  const people = [
+    "Ben",
+    "John",
+    "Tanner",
+    "Cruz",
+    "Michael",
+    "Hampton",
+    "Jeremy",
+    "Denise",
+    "Whit",
+    "Martin",
+    "Mike",
+  ];
+  return joker
+    ? ultraRare
+      ? "joker-rare"
+      : "joker"
+    : people[getRandomNumber(0, people.length - 1)];
 }
 
 // ===== Service Functions
@@ -173,9 +192,9 @@ function getCompassDirection() {
   console.log("touchEndX: ", touchEndX);
   let val = (touchEndX - touchStartX + 360) % 360;
   if (val >= 0 && val < 180) {
-    return Math.min(val, 90);
+    return Math.min(val, 70);
   } else {
-    return Math.max(val, 270);
+    return Math.max(val, 250);
   }
 }
 
