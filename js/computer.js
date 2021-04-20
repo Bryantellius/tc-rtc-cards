@@ -1,19 +1,111 @@
 const serverUrl = window.location.host;
 let computerId = generateId();
 let id = 0;
-let standard = 0;
-let bronze = 0;
-let silver = 0;
-let gold = 0;
-let royal = 0;
-let rare = 0;
-let ultrarare = 0;
+let standard = /*localStorage.getItem("standard") || */ 0;
+let bronze = /*localStorage.getItem("bronze") || */ 0;
+let silver = /*localStorage.getItem("silver") || */ 0;
+let gold = /*localStorage.getItem("gold") || */ 0;
+let royal = /*localStorage.getItem("royal") || */ 0;
+let rare = /*localStorage.getItem("rare") || */ 0;
+let ultrarare = /*localStorage.getItem("ultrarare") || */ 0;
+const collection = /*localStorage.getItem("collection") ||*/ {
+  Ben: {
+    standard: false,
+    bronze: false,
+    silver: false,
+    gold: false,
+    royal: false,
+  },
+  John: {
+    standard: false,
+    bronze: false,
+    silver: false,
+    gold: false,
+    royal: false,
+  },
+  Cruz: {
+    standard: false,
+    bronze: false,
+    silver: false,
+    gold: false,
+    royal: false,
+  },
+  Tanner: {
+    standard: false,
+    bronze: false,
+    silver: false,
+    gold: false,
+    royal: false,
+  },
+  Denise: {
+    standard: false,
+    bronze: false,
+    silver: false,
+    gold: false,
+    royal: false,
+  },
+  Hampton: {
+    standard: false,
+    bronze: false,
+    silver: false,
+    gold: false,
+    royal: false,
+  },
+  Whit: {
+    standard: false,
+    bronze: false,
+    silver: false,
+    gold: false,
+    royal: false,
+  },
+  Michael: {
+    standard: false,
+    bronze: false,
+    silver: false,
+    gold: false,
+    royal: false,
+  },
+  Jeremy: {
+    standard: false,
+    bronze: false,
+    silver: false,
+    gold: false,
+    royal: false,
+  },
+  Mike: {
+    standard: false,
+    bronze: false,
+    silver: false,
+    gold: false,
+    royal: false,
+  },
+  Martin: {
+    standard: false,
+    bronze: false,
+    silver: false,
+    gold: false,
+    royal: false,
+  },
+  joker: {
+    rank1: false,
+    rank2: false,
+    rank3: false,
+    rank4: false,
+  },
+  "joker-rare": {
+    rank1: false,
+    rank2: false,
+    rank3: false,
+    rank4: false,
+  },
+};
 
 // listen for the doms elements to be loaded
 document.addEventListener(
   "DOMContentLoaded",
   () => {
     console.log("document onload");
+    updateCollection();
     // connect to the websocket server
     const socket = io.connect(serverUrl, { transports: ["websocket"] });
 
@@ -63,33 +155,68 @@ function throwCard(card) {
       100 - card.strength
     }vh) scale(1)`;
   }, 100);
+  if (card.suit === "joker-rare") {
+    setTimeout(() => {
+      const cardElement = document.getElementById(cardId);
+      cardElement.classList.add("slow-animation");
+    }, 3000);
+  }
 }
 
 function changeScore(card) {
   if (card.suit !== "joker" && card.suit !== "joker-rare") {
     if (card.rank <= 15) {
-      document.getElementById("standard-count").textContent =
-        (standard !== 11 ? ++standard : standard) + "/11";
+      if (!collection[card.suit].standard) {
+        collection[card.suit].standard = true;
+        localStorage.setItem("standard", standard);
+        document.getElementById("standard-count").textContent =
+          (standard !== 11 ? ++standard : standard) + "/11";
+      }
     } else if (card.rank <= 22 && card.rank >= 16) {
-      document.getElementById("bronze-count").textContent =
-        (bronze !== 11 ? ++bronze : bronze) + "/11";
+      if (!collection[card.suit].standard) {
+        collection[card.suit].bronze = true;
+        localStorage.setItem("bronze", bronze);
+        document.getElementById("bronze-count").textContent =
+          (bronze !== 11 ? ++bronze : bronze) + "/11";
+      }
     } else if (card.rank <= 26 && card.rank >= 23) {
-      document.getElementById("silver-count").textContent =
-        (silver !== 11 ? ++silver : silver) + "/11";
+      if (!collection[card.suit].silver) {
+        collection[card.suit].silver = true;
+        localStorage.setItem("silver", silver);
+        document.getElementById("silver-count").textContent =
+          (silver !== 11 ? ++silver : silver) + "/11";
+      }
     } else if (card.rank <= 29 && card.rank >= 27) {
-      document.getElementById("gold-count").textContent =
-        (gold !== 11 ? ++gold : gold) + "/11";
+      if (!collection[card.suit].gold) {
+        collection[card.suit].gold = true;
+        localStorage.setItem("gold", gold);
+        document.getElementById("gold-count").textContent =
+          (gold !== 11 ? ++gold : gold) + "/11";
+      }
     } else if (card.rank === 30) {
-      document.getElementById("royal-count").textContent =
-        (royal !== 11 ? ++royal : royal) + "/11";
+      if (!collection[card.suit].royal) {
+        collection[card.suit].royal = true;
+        localStorage.setItem("royal", royal);
+        document.getElementById("royal-count").textContent =
+          (royal !== 11 ? ++royal : royal) + "/11";
+      }
     }
   } else if (card.suit === "joker-rare") {
-    document.getElementById("ultrarare-count").textContent =
-      (ultrarare !== 2 ? ++ultrarare : ultrarare) + "/4";
+    if (collection[card.suit][`rank${card.rank}`]) {
+      collection[card.suit][`rank${card.rank}`] = true;
+      localStorage.setItem("ultrarare", ultrarare);
+      document.getElementById("ultrarare-count").textContent =
+        (ultrarare !== 4 ? ++ultrarare : ultrarare) + "/4";
+    }
   } else {
-    document.getElementById("rare-count").textContent =
-      (rare !== 1 ? ++rare : rare) + "/1";
+    if (collection[card.suit][`rank${card.rank}`]) {
+      collection[card.suit][`rank${card.rank}`] = true;
+      localStorage.setItem("rare", rare);
+      document.getElementById("rare-count").textContent =
+        (rare !== 4 ? ++rare : rare) + "/4";
+    }
   }
+  localStorage.setItem("collection", collection);
 }
 
 function phoneConnected() {
@@ -122,4 +249,14 @@ function generateId() {
     return (c == "x" ? r : (r & 0x3) | 0x8).toString(16);
   });
   return uuid;
+}
+
+function updateCollection() {
+  document.getElementById("standard-count").textContent = `${standard}/11`;
+  document.getElementById("bronze-count").textContent = `${bronze}/11`;
+  document.getElementById("silver-count").textContent = `${silver}/11`;
+  document.getElementById("gold-count").textContent = `${gold}/11`;
+  document.getElementById("royal-count").textContent = `${royal}/11`;
+  document.getElementById("rare-count").textContent = `${rare}/4`;
+  document.getElementById("ultrarare-count").textContent = `${ultrarare}/4`;
 }

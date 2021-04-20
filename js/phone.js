@@ -47,7 +47,11 @@ function addCard(ultra) {
   let card = {
     id: `card${id++}`,
     suit: ultra || randomCard.suit,
-    rank: randomCard.rank,
+    rank: ultra
+      ? getRandomNumber(1, 4)
+      : randomCard.suit === "joker"
+      ? getRandomNumber(1, 4)
+      : randomCard.rank,
   };
   cards.push(card);
 

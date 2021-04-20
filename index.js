@@ -93,7 +93,7 @@ realTimeListener.on("connection", (socket) => {
     // checks if the disconnected device is computer or mobile
     if (socket.computerId) {
       // removes computer socket
-      delete computerSockets[socket[computerId]];
+      delete computerSockets[socket.computerId];
     }
   });
 });

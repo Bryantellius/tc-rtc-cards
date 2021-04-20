@@ -115,8 +115,18 @@ see licence: https://github.com/pakastin/deck-of-cards/blob/master/LICENSE
 .card.Hampton .face {
   background-image: url("/assets/img/cardfaces/hampton-headshot.svg");
 }
-.card.joker .face {
-  background-image: url("/assets/img/cardfaces/john-headshot.svg");
+.card.joker.rank1 .face {
+  background-image: url("/assets/img/cardfaces/4_1.svg");
+}
+.card.joker.rank2 .face {
+  background-image: url("/assets/img/cardfaces/4_2.svg");
+}
+.card.joker.rank3 .face {
+  background-image: url("/assets/img/cardfaces/4_3.svg");
+}
+.card.joker.rank4 .face {
+  background-image: url("/assets/img/cardfaces/TrueCodersLogo.png");
+  background-size: contain;
 }
 
 .rank30 {
@@ -210,49 +220,42 @@ see licence: https://github.com/pakastin/deck-of-cards/blob/master/LICENSE
   );
 }
 
-.card.joker-rare.rank23 .face,
-.card.joker-rare.rank24 .face,
-.card.joker-rare.rank25 .face,
-.card.joker-rare.rank26 .face,
-.card.joker-rare.rank27 .face,
-.card.joker-rare.rank28 .face,
-.card.joker-rare.rank29 .face,
-.card.joker-rare.rank30 .face {
+.card.joker-rare.rank1 .face {
   background-image: url("/assets/img/cardfaces/2222.svg");
 }
 
-/* Silver */
-.card.joker-rare.rank16 .face,
-.card.joker-rare.rank17 .face,
-.card.joker-rare.rank18 .face,
-.card.joker-rare.rank19 .face,
-.card.joker-rare.rank20 .face,
-.card.joker-rare.rank21 .face,
-.card.joker-rare.rank22 .face {
+.card.joker-rare.rank2 .face {
   background-image: url("/assets/img/cardfaces/burlywood.svg");
 }
 
-/* Bronze */
-.card.joker-rare.rank9 .face,
-.card.joker-rare.rank10 .face,
-.card.joker-rare.rank11 .face,
-.card.joker-rare.rank12 .face,
-.card.joker-rare.rank13 .face,
-.card.joker-rare.rank14 .face,
-.card.joker-rare.rank15 .face {
-  background-image: url("/assets/img/cardfaces/NickelbackZoomBG.svg");
+.card.joker-rare.rank3 .face {
+  background-image: url("/assets/img/cardfaces/purple.svg");
 }
 
-/* Bronze */
-.card.joker-rare.rank1 .face,
-.card.joker-rare.rank2 .face,
-.card.joker-rare.rank3 .face,
-.card.joker-rare.rank4 .face,
-.card.joker-rare.rank5 .face,
-.card.joker-rare.rank6 .face,
-.card.joker-rare.rank7 .face,
-.card.joker-rare.rank8 {
+.card.joker-rare.rank4 {
   background-image: url("/assets/img/cardfaces/image.svg");
+}
+
+.slow-animation {
+  animation: slow-animation 1s linear;
+}
+
+@keyframes slow-animation {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(90deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  75% {
+    transform: rotate(270deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes bg-animation {
