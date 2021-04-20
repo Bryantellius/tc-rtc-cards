@@ -41,7 +41,7 @@ document.addEventListener(
 );
 
 // ===== Card Functions =====
-function addCard(ultra = "joker") {
+function addCard(ultra) {
   // repopulates the deck with new cards
   let randomCard = getRandomCard(ultra);
   let card = {
@@ -161,7 +161,6 @@ function forS() {
 }
 
 function getRandomRank(ultra) {
-  console.log("ultra: ", ultra);
   const ranks = {
     normal: [
       "royal",

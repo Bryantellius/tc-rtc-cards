@@ -211,6 +211,29 @@ see licence: https://github.com/pakastin/deck-of-cards/blob/master/LICENSE
   background-image: url("/assets/img/cardfaces/image.svg");
 }
 
+/* @keyframes bg-animation {
+  0% {
+    background: radial-gradient(ellipse at top, #bf953f, #fcf5b7, #a166ab),
+      radial-gradient(ellipse at bottom, #1098ad, #07b39b, #6fba82);
+  }
+  25% {
+    background: radial-gradient(ellipse at top, #6fba82, #bf953f, #fcf5b7),
+      radial-gradient(ellipse at bottom, #a166ab, #1098ad, #07b39b);
+  }
+  50% {
+    background: radial-gradient(ellipse at top, #07b39b, #6fba82, #bf953f),
+      radial-gradient(ellipse at bottom, #fcf5b7, #a166ab, #1098ad);
+  }
+  75% {
+    background: radial-gradient(ellipse at top, #1098ad, #07b39b, #6fba82),
+      radial-gradient(ellipse at bottom, #bf953f, #fcf5b7, #a166ab);
+  }
+  100% {
+    background: radial-gradient(ellipse at top, #bf953f, #fcf5b7, #a166ab),
+      radial-gradient(ellipse at bottom, #1098ad, #07b39b, #6fba82);
+  }
+} */
+
 @keyframes bg-animation {
   0% {
     transform: translate(0, 0);
