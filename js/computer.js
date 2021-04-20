@@ -1,4 +1,5 @@
 const serverUrl = window.location.host;
+let showingCollection = false;
 let computerId = generateId();
 let id = 0;
 let standard = localStorage.getItem("standard") || 0;
@@ -141,6 +142,9 @@ function phoneMoved(angle) {
 }
 
 function throwCard(card) {
+  if (showingCollection) {
+    hideCollection();
+  }
   // adds the throw card to the computer display
   let cardId = `card${id++}`;
   addCard(cardId, card.angle, card.suit, card.rank);
@@ -259,4 +263,42 @@ function updateCollection() {
   document.getElementById("royal-count").textContent = `${royal}/11`;
   document.getElementById("rare-count").textContent = `${rare}/4`;
   document.getElementById("ultrarare-count").textContent = `${ultrarare}/4`;
+}
+
+function showCollection(rank) {
+  if (showingCollection) {
+    return;
+  }
+  showingCollection = true;
+  const collectionDiv = document.getElementById("collection");
+  const cancelDiv = document.getElementById("cancel");
+  cancelDiv.addEventListener("click", hideCollection);
+  cancelDiv.classList.add("show-cancel");
+  collectionDiv.classList.add("show-collection");
+  if (rank === "joker" || rank === "joker-rare") {
+    for (let suit in collection[rank]) {
+      if (collection[rank][suit]) {
+        collectionDiv.innerHTML += `<div class="flex-item"><div class="card ${suit} ${rank}"><div class="face"/></div></div>`;
+      } else if (collection[rank][suit] === false) {
+        collectionDiv.innerHTML += `<div class="flex-item"><div class="card"><div class="face"/></div></div>`;
+      }
+    }
+  } else {
+    for (let suit in collection) {
+      if (collection[suit][rank]) {
+        collectionDiv.innerHTML += `<div class="flex-item"><div class="card ${suit} ${rank}"><div class="face"/></div></div>`;
+      } else if (collection[suit][rank] === false) {
+        collectionDiv.innerHTML += `<div class="flex-item"><div class="card"><div class="face"/></div></div>`;
+      }
+    }
+  }
+}
+
+function hideCollection() {
+  showingCollection = false;
+  const collectionDiv = document.getElementById("collection");
+  const cancelDiv = document.getElementById("cancel");
+  cancelDiv.classList.remove("show-cancel");
+  collectionDiv.classList.remove("show-collection");
+  collectionDiv.innerHTML = "";
 }

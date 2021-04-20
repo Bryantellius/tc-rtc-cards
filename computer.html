@@ -14,17 +14,52 @@
   </head>
   <body>
     <!-- Collection Div -->
+    <div id="cancel">&#10005;</div>
     <div id="collection"></div>
     <!-- Score -->
     <div class="score-container">
       <h5>Collection:</h5>
-      <div id="ultrarare-count">0/4</div>
-      <div id="rare-count">0/4</div>
-      <div id="royal-count">0/11</div>
-      <div id="gold-count">0/11</div>
-      <div id="silver-count">0/11</div>
-      <div id="bronze-count">0/11</div>
-      <div id="standard-count">0/11</div>
+      <div
+        class="hover-show"
+        onclick="showCollection('joker-rare')"
+        id="ultrarare-count"
+      >
+        0/4
+      </div>
+      <div class="hover-show" onclick="showCollection('joker')" id="rare-count">
+        0/4
+      </div>
+      <div
+        class="hover-show"
+        onclick="showCollection('royal')"
+        id="royal-count"
+      >
+        0/11
+      </div>
+      <div class="hover-show" onclick="showCollection('gold')" id="gold-count">
+        0/11
+      </div>
+      <div
+        class="hover-show"
+        onclick="showCollection('silver')"
+        id="silver-count"
+      >
+        0/11
+      </div>
+      <div
+        class="hover-show"
+        onclick="showCollection('bronze')"
+        id="bronze-count"
+      >
+        0/11
+      </div>
+      <div
+        class="hover-show"
+        onclick="showCollection('standard')"
+        id="standard-count"
+      >
+        0/11
+      </div>
     </div>
     <!-- Pointer to indicate phone direction-->
     <div id="phone-move" class="path"></div>

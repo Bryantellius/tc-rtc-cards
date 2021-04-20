@@ -190,10 +190,45 @@ a {
 
 #collection {
   position: fixed;
-  top: -60vh;
-  left: 20vw;
-  width: 60vw;
-  height: 60vh;
+  top: 10vh;
+  left: -80vw;
+  width: 80vw;
+  /* height: 80vh; */
   z-index: 100000;
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  transition: all ease-in-out 1s;
+}
+
+.hover-show:hover {
+  cursor: pointer;
+}
+
+.show-collection {
+  left: 10vw !important;
+}
+
+.flex-item > .card {
+  transform: none;
+}
+
+.flex-item {
+  margin: 0.1rem;
+  transform: scale(1);
+}
+
+#cancel {
+  display: none;
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  color: white;
+  cursor: pointer;
+}
+
+.show-cancel {
+  display: block !important;
 }
