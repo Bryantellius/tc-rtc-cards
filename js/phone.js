@@ -43,20 +43,16 @@ document.addEventListener(
 // ===== Card Functions =====
 function addCard(ultra) {
   // repopulates the deck with new cards
-  let randomCard = getRandomCard();
+  let randomCard = getRandomCard(ultra);
   let card = {
     id: `card${id++}`,
-    suit: ultra || randomCard.suit,
-    rank: ultra
-      ? getRandomNumber(1, 4)
-      : randomCard.suit === "joker"
-      ? getRandomNumber(1, 4)
-      : randomCard.rank,
+    suit: randomCard.suit,
+    rank: randomCard.rank,
   };
   cards.push(card);
 
   document.getElementById("touchHandler").innerHTML += `<div class="item">
-        <div id="${card.id}" class="card ${card.suit} rank${card.rank}">
+        <div id="${card.id}" class="card ${card.suit} ${card.rank}">
             <div class="face"/>
         </div>
     </div>`;
@@ -119,17 +115,17 @@ function touchEnd(x, y, offsetX, offsetY, timeTaken) {
 
 // ===== Random Cards
 
-function getRandomCard() {
+function getRandomCard(ultra) {
+  const suit = getRandomSuit();
   return {
-    suit: getRandomSuit(),
-    rank: getRandomNumber(1, 30),
+    suit: ultra || suit,
+    rank: getRandomRank(ultra || suit === "joker" ? suit : undefined),
   };
 }
 
 function getRandomSuit() {
   let odds = Math.floor(Math.random() * 1000) + 1;
   let joker = 990 <= odds;
-  let ultraRare = odds === 998;
   const people = [
     "Ben",
     "John",
@@ -144,10 +140,8 @@ function getRandomSuit() {
     "Mike",
   ];
   return joker
-    ? ultraRare
-      ? "joker-rare"
-      : "joker"
-    : people[getRandomNumber(0, people.length - 1)];
+    ? "joker"
+    : people[Math.floor(Math.random() * people.length - 1) + 1];
 }
 
 // ===== Service Functions
@@ -165,8 +159,30 @@ function forS() {
   }
 }
 
-function getRandomNumber(min, max) {
-  return Math.floor(Math.random() * (max - min + 1) + min);
+function getRandomRank(ultra) {
+  const ranks = {
+    normal: [
+      "royal",
+      "gold",
+      "gold",
+      "silver",
+      "silver",
+      "silver",
+      "bronze",
+      "bronze",
+      "bronze",
+      "standard",
+    ],
+    joker: ["a", "b", "c", "d"],
+  };
+  if (ultra === "joker" || ultra === "joker-rare") {
+    return ranks["joker"][Math.floor(Math.random() * (4 - 1 + 1))];
+  } else {
+    let prop = Math.floor(Math.random() * 12);
+    let addedProp = Math.floor(Math.random() * 12);
+    let final = prop + addedProp;
+    return ranks["normal"][final > 9 ? 9 : final];
+  }
 }
 
 function getCompassDirection() {

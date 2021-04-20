@@ -87,16 +87,16 @@ const collection = /*localStorage.getItem("collection") ||*/ {
     royal: false,
   },
   joker: {
-    rank1: false,
-    rank2: false,
-    rank3: false,
-    rank4: false,
+    a: false,
+    b: false,
+    c: false,
+    d: false,
   },
   "joker-rare": {
-    rank1: false,
-    rank2: false,
-    rank3: false,
-    rank4: false,
+    a: false,
+    b: false,
+    c: false,
+    d: false,
   },
 };
 
@@ -146,7 +146,6 @@ function throwCard(card) {
   addCard(cardId, card.angle, card.suit, card.rank);
   changeScore(card);
   console.log(card.suit, card.rank);
-  console.log(standard, bronze, silver, gold, royal, rare);
   // force the animation with a timeout of 100ms
   setTimeout(() => {
     const cardElement = document.getElementById(cardId);
@@ -155,65 +154,59 @@ function throwCard(card) {
       100 - card.strength
     }vh) scale(1)`;
   }, 100);
-  if (card.suit === "joker-rare") {
-    setTimeout(() => {
-      const cardElement = document.getElementById(cardId);
-      cardElement.classList.add("slow-animation");
-    }, 3000);
-  }
 }
 
 function changeScore(card) {
   if (card.suit !== "joker" && card.suit !== "joker-rare") {
-    if (card.rank <= 15) {
+    if (card.rank === "standard") {
       if (!collection[card.suit].standard) {
         collection[card.suit].standard = true;
         localStorage.setItem("standard", standard);
         document.getElementById("standard-count").textContent =
-          (standard !== 11 ? ++standard : standard) + "/11";
+          (standard >= 11 ? standard : ++standard) + "/11";
       }
-    } else if (card.rank <= 22 && card.rank >= 16) {
+    } else if (card.rank === "bronze") {
       if (!collection[card.suit].standard) {
         collection[card.suit].bronze = true;
         localStorage.setItem("bronze", bronze);
         document.getElementById("bronze-count").textContent =
-          (bronze !== 11 ? ++bronze : bronze) + "/11";
+          (bronze >= 11 ? bronze : ++bronze) + "/11";
       }
-    } else if (card.rank <= 26 && card.rank >= 23) {
+    } else if (card.rank === "silver") {
       if (!collection[card.suit].silver) {
         collection[card.suit].silver = true;
         localStorage.setItem("silver", silver);
         document.getElementById("silver-count").textContent =
-          (silver !== 11 ? ++silver : silver) + "/11";
+          (silver >= 11 ? silver : ++silver) + "/11";
       }
-    } else if (card.rank <= 29 && card.rank >= 27) {
+    } else if (card.rank === "gold") {
       if (!collection[card.suit].gold) {
         collection[card.suit].gold = true;
         localStorage.setItem("gold", gold);
         document.getElementById("gold-count").textContent =
-          (gold !== 11 ? ++gold : gold) + "/11";
+          (gold >= 11 ? gold : ++gold) + "/11";
       }
-    } else if (card.rank === 30) {
+    } else if (card.rank === "royal") {
       if (!collection[card.suit].royal) {
         collection[card.suit].royal = true;
         localStorage.setItem("royal", royal);
         document.getElementById("royal-count").textContent =
-          (royal !== 11 ? ++royal : royal) + "/11";
+          (royal >= 11 ? royal : ++royal) + "/11";
       }
     }
   } else if (card.suit === "joker-rare") {
-    if (collection[card.suit][`rank${card.rank}`]) {
-      collection[card.suit][`rank${card.rank}`] = true;
+    if (!collection[card.suit][`${card.rank}`]) {
+      collection[card.suit][`${card.rank}`] = true;
       localStorage.setItem("ultrarare", ultrarare);
       document.getElementById("ultrarare-count").textContent =
-        (ultrarare !== 4 ? ++ultrarare : ultrarare) + "/4";
+        (ultrarare >= 4 ? ultrarare : ++ultrarare) + "/4";
     }
   } else {
-    if (collection[card.suit][`rank${card.rank}`]) {
-      collection[card.suit][`rank${card.rank}`] = true;
+    if (!collection[card.suit][`${card.rank}`]) {
+      collection[card.suit][`${card.rank}`] = true;
       localStorage.setItem("rare", rare);
       document.getElementById("rare-count").textContent =
-        (rare !== 4 ? ++rare : rare) + "/4";
+        (rare >= 4 ? ++rare : rare) + "/4";
     }
   }
   localStorage.setItem("collection", collection);
@@ -226,7 +219,7 @@ function phoneConnected() {
 
 function addCard(id, angle, suit, rank) {
   console.log("card angle: ", angle);
-  document.body.innerHTML += `<div class="path" style="transform: rotate(${angle}deg)"><div id="${id}" class="card ${suit} rank${rank}"><div class="face"/></div></div>`;
+  document.body.innerHTML += `<div class="path" style="transform: rotate(${angle}deg)"><div id="${id}" class="card ${suit} ${rank}"><div class="face"/></div></div>`;
 }
 
 function qrCodeGenerator(value, elementId) {

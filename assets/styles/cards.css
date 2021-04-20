@@ -115,21 +115,21 @@ see licence: https://github.com/pakastin/deck-of-cards/blob/master/LICENSE
 .card.Hampton .face {
   background-image: url("/assets/img/cardfaces/hampton-headshot.svg");
 }
-.card.joker.rank1 .face {
+.card.joker.a .face {
   background-image: url("/assets/img/cardfaces/4_1.svg");
 }
-.card.joker.rank2 .face {
+.card.joker.b .face {
   background-image: url("/assets/img/cardfaces/4_2.svg");
 }
-.card.joker.rank3 .face {
+.card.joker.c .face {
   background-image: url("/assets/img/cardfaces/4_3.svg");
 }
-.card.joker.rank4 .face {
+.card.joker.d .face {
   background-image: url("/assets/img/cardfaces/TrueCodersLogo.png");
   background-size: contain;
 }
 
-.rank30 {
+.royal {
   background: linear-gradient(
     to right,
     #7851a9,
@@ -139,9 +139,7 @@ see licence: https://github.com/pakastin/deck-of-cards/blob/master/LICENSE
   );
 }
 /* Gold */
-.rank27,
-.rank28,
-.rank29 {
+.gold {
   background: linear-gradient(
     to right,
     #bf953f,
@@ -152,10 +150,7 @@ see licence: https://github.com/pakastin/deck-of-cards/blob/master/LICENSE
 }
 
 /* Silver */
-.rank23,
-.rank24,
-.rank25,
-.rank26 {
+.silver {
   background: linear-gradient(
     to right,
     #c0c0c0,
@@ -166,13 +161,7 @@ see licence: https://github.com/pakastin/deck-of-cards/blob/master/LICENSE
 }
 
 /* Bronze */
-.rank16,
-.rank17,
-.rank18,
-.rank19,
-.rank20,
-.rank21,
-.rank22 {
+.bronze {
   background: linear-gradient(
     to right,
     #6c541e,
@@ -203,7 +192,7 @@ see licence: https://github.com/pakastin/deck-of-cards/blob/master/LICENSE
 }
 
 .card.joker-rare {
-  animation: bg-animation 0.2s infinite;
+  animation: bg-animation 0.2s 30s;
   background: linear-gradient(
     60deg,
     #bf953f,
@@ -220,42 +209,20 @@ see licence: https://github.com/pakastin/deck-of-cards/blob/master/LICENSE
   );
 }
 
-.card.joker-rare.rank1 .face {
+.card.joker-rare.a .face {
   background-image: url("/assets/img/cardfaces/2222.svg");
 }
 
-.card.joker-rare.rank2 .face {
+.card.joker-rare.b .face {
   background-image: url("/assets/img/cardfaces/burlywood.svg");
 }
 
-.card.joker-rare.rank3 .face {
+.card.joker-rare.c .face {
   background-image: url("/assets/img/cardfaces/purple.svg");
 }
 
-.card.joker-rare.rank4 {
+.card.joker-rare.d {
   background-image: url("/assets/img/cardfaces/image.svg");
-}
-
-.slow-animation {
-  animation: slow-animation 1s linear;
-}
-
-@keyframes slow-animation {
-  0% {
-    transform: rotate(0deg);
-  }
-  25% {
-    transform: rotate(90deg);
-  }
-  50% {
-    transform: rotate(180deg);
-  }
-  75% {
-    transform: rotate(270deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
 }
 
 @keyframes bg-animation {
