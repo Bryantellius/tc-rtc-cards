@@ -52,11 +52,26 @@ see licence: https://github.com/pakastin/deck-of-cards/blob/master/LICENSE
   color: white;
   background-image: linear-gradient(45deg, #fff, #ccc, 35%);
 }
+.card.joker,
+.card.joker-rare {
+  color: #c0c0c0;
+  text-shadow: 0px 0px 1px #bf953f;
+}
 .card.joker:before,
 .card.joker:after,
 .card.joker-rare:before,
 .card.joker-rare:after {
-  content: "J\a O\a K\a E\a R";
+  content: "S\a P\a E\a C\a I\a A\a L";
+  letter-spacing: 0;
+  font-size: 0.4rem;
+  line-height: 0.4rem;
+  padding: 0.15rem 0.05rem;
+  width: 0.5rem;
+}
+
+.card.joker-rare:before,
+.card.joker-rare:after {
+  content: "R\a A\a R\a E";
   letter-spacing: 0;
   font-size: 0.4rem;
   line-height: 0.4rem;
@@ -102,9 +117,6 @@ see licence: https://github.com/pakastin/deck-of-cards/blob/master/LICENSE
 }
 .card.joker .face {
   background-image: url("/assets/img/cardfaces/john-headshot.svg");
-}
-.card.joker-rare .face {
-  background-image: url("/assets/img/cardfaces/image.svg");
 }
 
 .rank30 {
@@ -163,10 +175,118 @@ see licence: https://github.com/pakastin/deck-of-cards/blob/master/LICENSE
 .card.joker {
   background: linear-gradient(
     to bottom right,
+    #bf953f,
+    #f79533,
     tomato,
-    orange,
-    yellow,
-    royalblue,
-    #663399
+    #fcf5b7,
+    #a166ab,
+    #5073b8,
+    #1098ad,
+    #07b39b,
+    #6fba82,
+    #aa771c
   );
+}
+
+.card.joker-rare:hover {
+  animation: none;
+}
+
+.card.joker-rare {
+  animation: bg-animation 0.2s infinite;
+  background: linear-gradient(
+    60deg,
+    #bf953f,
+    #f79533,
+    #f37055,
+    #ef4e7b,
+    #aa771c,
+    #a166ab,
+    #5073b8,
+    #1098ad,
+    #07b39b,
+    #6fba82,
+    #fcf5b7
+  );
+}
+
+.card.joker-rare.rank23 .face,
+.card.joker-rare.rank24 .face,
+.card.joker-rare.rank25 .face,
+.card.joker-rare.rank26 .face,
+.card.joker-rare.rank27 .face,
+.card.joker-rare.rank28 .face,
+.card.joker-rare.rank29 .face,
+.card.joker-rare.rank30 .face {
+  background-image: url("/assets/img/cardfaces/2222.svg");
+}
+
+/* Silver */
+.card.joker-rare.rank16 .face,
+.card.joker-rare.rank17 .face,
+.card.joker-rare.rank18 .face,
+.card.joker-rare.rank19 .face,
+.card.joker-rare.rank20 .face,
+.card.joker-rare.rank21 .face,
+.card.joker-rare.rank22 .face {
+  background-image: url("/assets/img/cardfaces/burlywood.svg");
+}
+
+/* Bronze */
+.card.joker-rare.rank9 .face,
+.card.joker-rare.rank10 .face,
+.card.joker-rare.rank11 .face,
+.card.joker-rare.rank12 .face,
+.card.joker-rare.rank13 .face,
+.card.joker-rare.rank14 .face,
+.card.joker-rare.rank15 .face {
+  background-image: url("/assets/img/cardfaces/NickelbackZoomBG.svg");
+}
+
+/* Bronze */
+.card.joker-rare.rank1 .face,
+.card.joker-rare.rank2 .face,
+.card.joker-rare.rank3 .face,
+.card.joker-rare.rank4 .face,
+.card.joker-rare.rank5 .face,
+.card.joker-rare.rank6 .face,
+.card.joker-rare.rank7 .face,
+.card.joker-rare.rank8 {
+  background-image: url("/assets/img/cardfaces/image.svg");
+}
+
+@keyframes bg-animation {
+  0% {
+    transform: translate(0, 0);
+  }
+  10% {
+    transform: translate(-5%, -5%);
+  }
+  20% {
+    transform: translate(-10%, 5%);
+  }
+  30% {
+    transform: translate(5%, -10%);
+  }
+  40% {
+    transform: translate(-5%, 15%);
+  }
+  50% {
+    transform: translate(-10%, 5%);
+  }
+  60% {
+    transform: translate(15%, 0);
+  }
+  70% {
+    transform: translate(0, 10%);
+  }
+  80% {
+    transform: translate(-15%, 0);
+  }
+  90% {
+    transform: translate(10%, 5%);
+  }
+  100% {
+    transform: translate(5%, 0);
+  }
 }

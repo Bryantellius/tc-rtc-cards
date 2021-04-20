@@ -61,6 +61,10 @@
   );
 }
 
+#ultrarare-count {
+  background: linear-gradient(to bottom right, silver, gold, #663399, gold);
+}
+
 .card {
   /* out of screen: translateY viewport height */
   transform: translateY(100vh) scale(1.5);

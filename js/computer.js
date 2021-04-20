@@ -7,6 +7,7 @@ let silver = 0;
 let gold = 0;
 let royal = 0;
 let rare = 0;
+let ultrarare = 0;
 
 // listen for the doms elements to be loaded
 document.addEventListener(
@@ -65,20 +66,29 @@ function throwCard(card) {
 }
 
 function changeScore(card) {
-  if (card.suit !== "joker") {
+  if (card.suit !== "joker" && card.suit !== "joker-rare") {
     if (card.rank <= 15) {
-      document.getElementById("standard-count").textContent = ++standard;
+      document.getElementById("standard-count").textContent =
+        (standard !== 11 ? ++standard : standard) + "/11";
     } else if (card.rank <= 22 && card.rank >= 16) {
-      document.getElementById("bronze-count").textContent = ++bronze;
+      document.getElementById("bronze-count").textContent =
+        (bronze !== 11 ? ++bronze : bronze) + "/11";
     } else if (card.rank <= 26 && card.rank >= 23) {
-      document.getElementById("silver-count").textContent = ++silver;
+      document.getElementById("silver-count").textContent =
+        (silver !== 11 ? ++silver : silver) + "/11";
     } else if (card.rank <= 29 && card.rank >= 27) {
-      document.getElementById("gold-count").textContent = ++gold;
+      document.getElementById("gold-count").textContent =
+        (gold !== 11 ? ++gold : gold) + "/11";
     } else if (card.rank === 30) {
-      document.getElementById("royal-count").textContent = ++royal;
+      document.getElementById("royal-count").textContent =
+        (royal !== 11 ? ++royal : royal) + "/11";
     }
+  } else if (card.suit === "joker-rare") {
+    document.getElementById("ultrarare-count").textContent =
+      (ultrarare !== 2 ? ++ultrarare : ultrarare) + "/4";
   } else {
-    document.getElementById("rare-count").textContent = ++rare;
+    document.getElementById("rare-count").textContent =
+      (rare !== 1 ? ++rare : rare) + "/1";
   }
 }
 

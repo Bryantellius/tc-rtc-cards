@@ -29,53 +29,24 @@ document.addEventListener(
       touchEnd
     );
 
-    // Obtain a new *world-oriented* Full Tilt JS DeviceOrientation Promise
-    var promise = FULLTILT.getDeviceOrientation({ type: "world" });
+    let errorFlash = document.getElementById("errorFlash");
+    errorFlash.textContent = "Swipe up on the card!";
+    errorFlash.classList.add("show");
+    setTimeout(() => errorFlash.classList.remove("show"), 5000);
 
-    // Wait for Promise result
-    promise
-      .then(function (deviceOrientation) {
-        // Device Orientation Events are supported
-
-        // Register a callback to run every time a new
-        // deviceorientation event is fired by the browser.
-        deviceOrientation.listen(function () {
-          // Get the current *screen-adjusted* device orientation angles
-          var currentOrientation = deviceOrientation.getScreenAdjustedEuler();
-
-          // Calculate the current compass heading that the user is 'looking at' (in degrees)
-          compassDir = 360 - currentOrientation.alpha;
-        });
-      })
-      .catch(function (errorMessage) {
-        // Device Orientation Events are not supported
-        console.log(errorMessage);
-        // Implement some fallback controls here...
-        let errorFlash = document.getElementById("errorFlash");
-        errorFlash.textContent = errorMessage;
-        errorFlash.classList.add("show");
-        setTimeout(() => errorFlash.classList.remove("show"), 5000);
-      });
-
-    // update phone direction every 100ms
-    setInterval(() => {
-      compassDir = Math.floor(Math.random() * 180) + 1 - 90;
-      socket.emit("phone-move", {
-        computerId,
-        angle: getCompassDirection(),
-      });
-    }, 100);
+    // document.getElementById("s").addEventListener("touchstart", forS);
+    document.getElementById("s").addEventListener("click", forS);
   },
   false
 );
 
 // ===== Card Functions =====
-function addCard() {
+function addCard(ultra) {
   // repopulates the deck with new cards
   let randomCard = getRandomCard();
   let card = {
     id: `card${id++}`,
-    suit: randomCard.suit,
+    suit: ultra || randomCard.suit,
     rank: randomCard.rank,
   };
   cards.push(card);
@@ -153,8 +124,8 @@ function getRandomCard() {
 
 function getRandomSuit() {
   let odds = Math.floor(Math.random() * 1000) + 1;
-  let joker = 950 <= odds && odds <= 999;
-  let ultraRare = odds === 1000;
+  let joker = 990 <= odds;
+  let ultraRare = odds === 998;
   const people = [
     "Ben",
     "John",
@@ -180,6 +151,13 @@ function getRandomSuit() {
 function createCards(n) {
   for (let i = 0; i < n; i++) {
     addCard();
+  }
+}
+
+function forS() {
+  console.log(cards[0]);
+  if (cards[0].suit === "joker") {
+    addCard("joker-rare");
   }
 }
 
