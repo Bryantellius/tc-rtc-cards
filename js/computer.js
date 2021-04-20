@@ -206,7 +206,7 @@ function changeScore(card) {
       collection[card.suit][`${card.rank}`] = true;
       localStorage.setItem("rare", rare);
       document.getElementById("rare-count").textContent =
-        (rare >= 4 ? ++rare : rare) + "/4";
+        (rare >= 4 ? rare : ++rare) + "/4";
     }
   }
   localStorage.setItem("collection", collection);

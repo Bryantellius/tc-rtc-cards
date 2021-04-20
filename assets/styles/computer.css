@@ -187,3 +187,13 @@ a {
   text-decoration: none;
   font-weight: 500;
 }
+
+#collection {
+  position: fixed;
+  top: -60vh;
+  left: 20vw;
+  width: 60vw;
+  height: 60vh;
+  z-index: 100000;
+  background: rgba(255, 255, 255, 0.7);
+}

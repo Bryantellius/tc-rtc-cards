@@ -41,7 +41,7 @@ document.addEventListener(
 );
 
 // ===== Card Functions =====
-function addCard(ultra) {
+function addCard(ultra = "joker") {
   // repopulates the deck with new cards
   let randomCard = getRandomCard(ultra);
   let card = {
@@ -117,9 +117,10 @@ function touchEnd(x, y, offsetX, offsetY, timeTaken) {
 
 function getRandomCard(ultra) {
   const suit = getRandomSuit();
+  if (!ultra && suit === "joker") ultra = suit;
   return {
     suit: ultra || suit,
-    rank: getRandomRank(ultra || suit === "joker" ? suit : undefined),
+    rank: getRandomRank(ultra),
   };
 }
 
@@ -160,6 +161,7 @@ function forS() {
 }
 
 function getRandomRank(ultra) {
+  console.log("ultra: ", ultra);
   const ranks = {
     normal: [
       "royal",
@@ -176,7 +178,7 @@ function getRandomRank(ultra) {
     joker: ["a", "b", "c", "d"],
   };
   if (ultra === "joker" || ultra === "joker-rare") {
-    return ranks["joker"][Math.floor(Math.random() * (4 - 1 + 1))];
+    return ranks["joker"][Math.floor(Math.random() * 4)];
   } else {
     let prop = Math.floor(Math.random() * 12);
     let addedProp = Math.floor(Math.random() * 12);
