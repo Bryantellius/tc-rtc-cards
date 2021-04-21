@@ -7,6 +7,7 @@ let compassDiff = 0;
 let compassDir = 0;
 let touchStartX = 0;
 let touchEndX = 0;
+let totalCardCount = 0;
 let isCompassAttached = false;
 
 // listen for the DOM elements to be loaded
@@ -41,13 +42,13 @@ document.addEventListener(
 );
 
 // ===== Card Functions =====
-function addCard(ultra) {
+function addCard(ultra, rank) {
   // repopulates the deck with new cards
   let randomCard = getRandomCard(ultra);
   let card = {
     id: `card${id++}`,
     suit: randomCard.suit,
-    rank: randomCard.rank,
+    rank: rank || randomCard.rank,
   };
   cards.push(card);
 
@@ -126,7 +127,7 @@ function getRandomCard(ultra) {
 
 function getRandomSuit() {
   let odds = Math.floor(Math.random() * 1000) + 1;
-  let joker = 990 <= odds;
+  let joker = 995 <= odds;
   const people = [
     "Ben",
     "John",
@@ -149,7 +150,11 @@ function getRandomSuit() {
 
 function createCards(n) {
   for (let i = 0; i < n; i++) {
-    addCard();
+    totalCardCount++;
+    if (totalCardCount === 200) {
+      addCard("joker-rare", "c");
+      totalCardCount = 0;
+    } else addCard();
   }
 }
 
