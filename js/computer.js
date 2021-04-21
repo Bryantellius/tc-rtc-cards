@@ -1,4 +1,7 @@
 const serverUrl = window.location.host;
+let optionBtn;
+let selfPlay;
+let clickBtn;
 let showingCollection = false;
 let computerId = generateId();
 let id = 0;
@@ -106,6 +109,12 @@ document.addEventListener(
   "DOMContentLoaded",
   () => {
     console.log("document onload");
+
+    // Experimental!
+    // checkOrientation();
+
+    selfPlay = document.getElementById("self-play");
+    optionBtn = document.getElementById("optionBtn");
     updateCollection();
     // connect to the websocket server
     const socket = io.connect(serverUrl, { transports: ["websocket"] });
@@ -150,6 +159,9 @@ function throwCard(card) {
   addCard(cardId, card.angle, card.suit, card.rank);
   changeScore(card);
   console.log(card.suit, card.rank);
+  if (!card.strength) {
+    card.strength = Math.floor(Math.random() * 50 + 25);
+  }
   // force the animation with a timeout of 100ms
   setTimeout(() => {
     const cardElement = document.getElementById(cardId);
@@ -301,4 +313,93 @@ function hideCollection() {
   cancelDiv.classList.remove("show-cancel");
   collectionDiv.classList.remove("show-collection");
   collectionDiv.innerHTML = "";
+}
+
+function showSelfPlay() {
+  selfPlay.classList.add("show-self-play");
+  selfPlay.innerHTML += `<div id="clickBtn" onclick="throwCard(createCard())" class="flex-item"><div class="card standard"><div class="face">+</div></div></div>`;
+  optionBtn.removeEventListener("click", showSelfPlay);
+  phoneConnected();
+}
+
+function createCard(ultra) {
+  let randomCard = getRandomCard(ultra);
+  return {
+    id: `card${id++}`,
+    suit: randomCard.suit,
+    rank: randomCard.rank,
+    angle: Math.floor(Math.random() * 45 + 15) - 25,
+  };
+}
+
+function getRandomCard(ultra) {
+  const suit = getRandomSuit();
+  if (!ultra && suit === "joker") ultra = suit;
+  return {
+    suit: ultra || suit,
+    rank: getRandomRank(ultra),
+  };
+}
+
+function getRandomSuit() {
+  let odds = Math.floor(Math.random() * 1000) + 1;
+  let joker = 990 <= odds;
+  const people = [
+    "Ben",
+    "John",
+    "Tanner",
+    "Cruz",
+    "Michael",
+    "Hampton",
+    "Jeremy",
+    "Denise",
+    "Whit",
+    "Martin",
+    "Mike",
+  ];
+  return joker
+    ? "joker"
+    : people[Math.floor(Math.random() * people.length - 1) + 1];
+}
+
+function getRandomRank(ultra) {
+  const ranks = {
+    normal: [
+      "royal",
+      "gold",
+      "gold",
+      "silver",
+      "silver",
+      "silver",
+      "bronze",
+      "bronze",
+      "bronze",
+      "standard",
+    ],
+    joker: ["a", "b", "c", "d"],
+  };
+  if (ultra === "joker" || ultra === "joker-rare") {
+    return ranks["joker"][Math.floor(Math.random() * 4)];
+  } else {
+    let prop = Math.floor(Math.random() * 12);
+    let addedProp = Math.floor(Math.random() * 12);
+    let final = prop + addedProp;
+    return ranks["normal"][final > 9 ? 9 : final];
+  }
+}
+
+function checkOrientation() {
+  console.log(
+    "check ori",
+    window.matchMedia("(orientation: portrait)").matches
+  );
+  const ori = document.getElementById("orientationMessage");
+  if (window.matchMedia("(orientation: portrait)").matches) {
+    ori.classList.add("show-ori-message");
+  } else {
+    // you're in LANDSCAPE mode
+    ori.classList.remove("show-ori-message");
+  }
+
+  window.addEventListener("orientationchange", checkOrientation);
 }
