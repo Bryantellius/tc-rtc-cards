@@ -4,6 +4,7 @@ let selfPlay;
 let clickBtn;
 let showingCollection = false;
 let computerId = generateId();
+let totalCardCount = 0;
 let id = 0;
 let standard = localStorage.getItem("standard") || 0;
 let bronze = localStorage.getItem("bronze") || 0;
@@ -323,7 +324,13 @@ function showSelfPlay() {
 }
 
 function createCard(ultra) {
-  let randomCard = getRandomCard(ultra);
+  console.log(totalCardCount);
+  let randomCard;
+  if (totalCardCount === 200) {
+    randomCard = getRandomCard("joker-rare", "c");
+    totalCardCount = 0;
+  } else randomCard = getRandomCard(ultra);
+  totalCardCount++;
   return {
     id: `card${id++}`,
     suit: randomCard.suit,
@@ -332,12 +339,12 @@ function createCard(ultra) {
   };
 }
 
-function getRandomCard(ultra) {
+function getRandomCard(ultra, rank) {
   const suit = getRandomSuit();
   if (!ultra && suit === "joker") ultra = suit;
   return {
     suit: ultra || suit,
-    rank: getRandomRank(ultra),
+    rank: rank || getRandomRank(ultra),
   };
 }
 

@@ -80,38 +80,178 @@ see licence: https://github.com/pakastin/deck-of-cards/blob/master/LICENSE
 .card:after {
   content: url(/assets/img/favicon.png);
 }
-.card.Ben .face {
+/* ======== STANDARD CARDS */
+.card.Ben.standard .face {
+  background-image: url("/assets/img/cardfaces/2_1.svg");
+}
+.card.Cruz.standard .face {
+  background-image: url("/assets/img/cardfaces/2_3.svg");
+}
+.card.Tanner.standard .face {
+  background-image: url("/assets/img/cardfaces/2_4.svg");
+}
+.card.John.standard .face {
+  background-image: url("/assets/img/cardfaces/2_2.svg");
+}
+.card.Jeremy.standard .face {
+  background-image: url("/assets/img/cardfaces/2_9.svg");
+}
+.card.Mike.standard .face {
+  background-image: url("/assets/img/TCLogoOnly.png");
+  background-size: contain;
+}
+.card.Denise.standard .face {
+  background-image: url("/assets/img/cardfaces/2_5.svg");
+}
+.card.Michael.standard .face {
+  background-image: url("/assets/img/cardfaces/2_8.svg");
+}
+.card.Martin.standard .face {
+  background-image: url("/assets/img/cardfaces/TrueCodersLogo.png");
+  background-size: contain;
+}
+.card.Whit.standard .face {
+  background-image: url("/assets/img/cardfaces/2_7.svg");
+}
+.card.Hampton.standard .face {
+  background-image: url("/assets/img/cardfaces/2_6.svg");
+}
+/* =========== BRONZE CARDS */
+.card.Ben.bronze .face {
   background-image: url("/assets/img/cardfaces/ben-headshot_sm.svg");
 }
-.card.Cruz .face {
+.card.Cruz.bronze .face {
   background-image: url("/assets/img/cardfaces/cruz-headshot.svg");
 }
-.card.Tanner .face {
+.card.Tanner.bronze .face {
   background-image: url("/assets/img/cardfaces/tanner-headshot.svg");
 }
-.card.John .face {
+.card.John.bronze .face {
   background-image: url("/assets/img/cardfaces/john-headshot.svg");
 }
-.card.Jeremy .face {
+.card.Jeremy.bronze .face {
   background-image: url("/assets/img/cardfaces/jeremy-headshot.svg");
 }
-.card.Mike .face {
+.card.Mike.bronze .face {
   background-image: url("/assets/img/cardfaces/mike-headshot.svg");
 }
-.card.Denise .face {
+.card.Denise.bronze .face {
   background-image: url("/assets/img/cardfaces/denise-headshot.svg");
 }
-.card.Michael .face {
+.card.Michael.bronze .face {
   background-image: url("/assets/img/cardfaces/michael-headshot.svg");
 }
-.card.Martin .face {
+.card.Martin.bronze .face {
   background-image: url("/assets/img/cardfaces/martin-headshot.svg");
 }
-.card.Whit .face {
+.card.Whit.bronze .face {
   background-image: url("/assets/img/cardfaces/whit-headshot.svg");
 }
-.card.Hampton .face {
+.card.Hampton.bronze .face {
   background-image: url("/assets/img/cardfaces/hampton-headshot.svg");
+}
+/* ========== SILVER CARDS */
+.card.Ben.silver .face {
+  background-image: url("/assets/img/cardfaces/ben-headshot_sm.svg");
+}
+.card.Cruz.silver .face {
+  background-image: url("/assets/img/cardfaces/cruz-headshot.svg");
+}
+.card.Tanner.silver .face {
+  background-image: url("/assets/img/cardfaces/tanner-headshot.svg");
+}
+.card.John.silver .face {
+  background-image: url("/assets/img/cardfaces/john-headshot.svg");
+}
+.card.Jeremy.silver .face {
+  background-image: url("/assets/img/cardfaces/jeremy-headshot.svg");
+}
+.card.Mike.silver .face {
+  background-image: url("/assets/img/cardfaces/mike-headshot.svg");
+}
+.card.Denise.silver .face {
+  background-image: url("/assets/img/cardfaces/denise-headshot.svg");
+}
+.card.Michael.silver .face {
+  background-image: url("/assets/img/cardfaces/michael-headshot.svg");
+}
+.card.Martin.silver .face {
+  background-image: url("/assets/img/cardfaces/martin-headshot.svg");
+}
+.card.Whit.silver .face {
+  background-image: url("/assets/img/cardfaces/whit-headshot.svg");
+}
+.card.Hampton.silver .face {
+  background-image: url("/assets/img/cardfaces/hampton-headshot.svg");
+}
+/* ========== GOLD CARDS */
+.card.Ben.gold .face {
+  background-image: url("/assets/img/cardfaces/ben-gold.svg");
+}
+.card.Cruz.gold .face {
+  background-image: url("/assets/img/cardfaces/cruz-gold.svg");
+}
+.card.Tanner.gold .face {
+  background-image: url("/assets/img/cardfaces/tanner-gold.svg");
+}
+.card.John.gold .face {
+  background-image: url("/assets/img/cardfaces/john-gold.svg");
+}
+.card.Jeremy.gold .face {
+  background-image: url("/assets/img/cardfaces/jeremy-gold.svg");
+}
+.card.Mike.gold .face {
+  background-image: url("/assets/img/cardfaces/TrueCodersLogo.png");
+  background-size: contain;
+}
+.card.Denise.gold .face {
+  background-image: url("/assets/img/cardfaces/denise-gold.svg");
+}
+.card.Michael.gold .face {
+  background-image: url("/assets/img/cardfaces/michael-gold.svg");
+}
+.card.Martin.gold .face {
+  background-image: url("/assets/img/cardfaces/gold-a.svg");
+}
+.card.Whit.gold .face {
+  background-image: url("/assets/img/cardfaces/whit-gold.svg");
+}
+.card.Hampton.gold .face {
+  background-image: url("/assets/img/cardfaces/hampton-gold.svg");
+}
+/* ========== ROYAL CARDS */
+.card.Ben.royal .face {
+  background-image: url("/assets/img/cardfaces/ganondorf.svg");
+}
+.card.Cruz.royal .face {
+  background-image: url("/assets/img/cardfaces/mega-man.svg");
+}
+.card.Tanner.royal .face {
+  background-image: url("/assets/img/cardfaces/joker-smash.webp");
+}
+.card.John.royal .face {
+  background-image: url("/assets/img/cardfaces/bowser.svg");
+}
+.card.Jeremy.royal .face {
+  background-image: url("/assets/img/cardfaces/captain-falcon.svg");
+}
+.card.Mike.royal .face {
+  background-image: url("/assets/img/cardfaces/mario.svg");
+}
+.card.Denise.royal .face {
+  background-image: url("/assets/img/cardfaces/luigi.webp");
+}
+.card.Michael.royal .face {
+  background-image: url("/assets/img/cardfaces/rob.svg");
+}
+.card.Martin.royal .face {
+  background-image: url("/assets/img/cardfaces/donkey-kong.svg");
+}
+.card.Whit.royal .face {
+  background-image: url("/assets/img/cardfaces/banjo.webp");
+}
+.card.Hampton.royal .face {
+  background-image: url("/assets/img/cardfaces/purple.svg");
 }
 .card.joker.a .face {
   background-image: url("/assets/img/cardfaces/4_1.svg");
@@ -190,7 +330,7 @@ see licence: https://github.com/pakastin/deck-of-cards/blob/master/LICENSE
 }
 
 .card.joker-rare {
-  animation: bg-animation 0.2s infinite;
+  animation: bg-animation 0.5s infinite linear;
   background: radial-gradient(ellipse at top, #bf953f, #fcf5b7, #a166ab),
     radial-gradient(ellipse at bottom, #1098ad, #07b39b, #6fba82);
 }
@@ -204,7 +344,7 @@ see licence: https://github.com/pakastin/deck-of-cards/blob/master/LICENSE
 }
 
 .card.joker-rare.c .face {
-  background-image: url("/assets/img/cardfaces/purple.svg");
+  background-image: url("/assets/img/cardfaces/zelda.png");
 }
 
 .card.joker-rare.d .face {
@@ -236,36 +376,36 @@ see licence: https://github.com/pakastin/deck-of-cards/blob/master/LICENSE
 
 @keyframes bg-animation {
   0% {
-    transform: translate(0, 0);
+    transform: rotate(0deg);
   }
   10% {
-    transform: translate(-5%, -5%);
+    transform: rotate(-3deg);
   }
   20% {
-    transform: translate(-10%, 5%);
+    transform: rotate(0deg);
   }
   30% {
-    transform: translate(5%, -10%);
+    transform: rotate(3deg);
   }
   40% {
-    transform: translate(-5%, 15%);
+    transform: rotate(0deg);
   }
   50% {
-    transform: translate(-10%, 5%);
+    transform: rotate(-3deg);
   }
   60% {
-    transform: translate(15%, 0);
+    transform: rotate(0deg);
   }
   70% {
-    transform: translate(0, 10%);
+    transform: rotate(3deg);
   }
   80% {
-    transform: translate(-15%, 0);
+    transform: rotate(0deg);
   }
   90% {
-    transform: translate(10%, 5%);
+    transform: rotate(-3deg);
   }
   100% {
-    transform: translate(5%, 0);
+    transform: rotate(3deg);
   }
 }
