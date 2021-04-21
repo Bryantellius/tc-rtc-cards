@@ -113,8 +113,8 @@ for (let k in interfaces) {
   }
 }
 
-const opening = `http://${addresses.sort()[0]}:${port}`;
+// const opening = `http://${addresses.sort()[0]}:${port}`;
 
-console.log(`Opening at: ${opening}`);
+// console.log(`Opening at: ${opening}`);
 
-open(opening);
+// open(opening);
