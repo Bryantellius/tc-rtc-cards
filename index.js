@@ -43,9 +43,9 @@ const server = http.createServer((req, res) => {
   });
 });
 
-server.listen(process.env.PORT || 3000, () =>
-  console.log(`Server listening...`)
-);
+const port = process.env.PORT || 3000;
+
+server.listen(port, () => console.log(`Server listening on port ${port}`));
 
 const { Server } = require("socket.io");
 
@@ -113,8 +113,8 @@ for (let k in interfaces) {
   }
 }
 
-// const opening = `http://${addresses.sort()[0]}:3000`;
+const opening = `http://${addresses.sort()[0]}:${port}`;
 
-// console.log(`Opening at: ${opening}`);
+console.log(`Opening at: ${opening}`);
 
-// open(opening);
+open(opening);

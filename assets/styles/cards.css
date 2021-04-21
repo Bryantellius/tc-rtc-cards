@@ -59,7 +59,7 @@ see licence: https://github.com/pakastin/deck-of-cards/blob/master/LICENSE
 }
 .card.joker:before,
 .card.joker:after {
-  content: "S\a P\a E\a C\a I\a A\a L";
+  content: "R\a A\a R\a E";
   letter-spacing: 0;
   font-size: 0.4rem;
   line-height: 0.4rem;
@@ -69,7 +69,7 @@ see licence: https://github.com/pakastin/deck-of-cards/blob/master/LICENSE
 
 .card.joker-rare:before,
 .card.joker-rare:after {
-  content: "R\a A\a R\a E";
+  content: "U\a L\a T\a R\a A";
   letter-spacing: 0;
   font-size: 0.4rem;
   line-height: 0.4rem;

@@ -123,7 +123,7 @@ document.addEventListener(
     socket.on("phone-throw-card", throwCard);
 
     // generate qrcode
-    const url = `https://${serverUrl}/?id=${computerId}`;
+    const url = `http://${serverUrl}/?id=${computerId}`;
     qrCodeGenerator(url, "placeholder");
 
     // display the url on the dom
@@ -171,7 +171,7 @@ function changeScore(card) {
         localStorage.setItem("standard", standard);
       }
     } else if (card.rank === "bronze") {
-      if (!collection[card.suit].standard) {
+      if (!collection[card.suit].bronze) {
         console.log("bronze");
         collection[card.suit].bronze = true;
         document.getElementById("bronze-count").textContent =
