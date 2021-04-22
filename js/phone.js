@@ -162,7 +162,7 @@ function createCards(n) {
 function forS() {
   console.log(cards[0]);
   if (cards[0].suit === "joker") {
-    addCard("joker-rare");
+    addCard("joker-rare", "a");
   }
 }
 

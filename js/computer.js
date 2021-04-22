@@ -138,6 +138,9 @@ document.addEventListener(
 
     // display the url on the dom
     document.getElementById("url").innerHTML = url;
+
+    // ???
+    document.getElementById("a").addEventListener("change", forA);
   },
   false
 );
@@ -323,10 +326,10 @@ function showSelfPlay() {
   phoneConnected();
 }
 
-function createCard(ultra) {
+function createCard(ultra, rank) {
   console.log(totalCardCount);
   let randomCard;
-  if (totalCardCount === 200) {
+  if (totalCardCount === 200 && !rank) {
     randomCard = getRandomCard("joker-rare", "c");
     totalCardCount = 0;
   } else randomCard = getRandomCard(ultra);
@@ -334,7 +337,7 @@ function createCard(ultra) {
   return {
     id: `card${id++}`,
     suit: randomCard.suit,
-    rank: randomCard.rank,
+    rank: rank || randomCard.rank,
     angle: Math.floor(Math.random() * 45 + 15) - 25,
   };
 }
@@ -409,4 +412,11 @@ function checkOrientation() {
   }
 
   window.addEventListener("orientationchange", checkOrientation);
+}
+
+function forA(e) {
+  console.log(e.target.value, "?");
+  if (e.target.value === "b" && !collection["joker-rare"]["b"]) {
+    addCard("joker-rare", "b");
+  }
 }

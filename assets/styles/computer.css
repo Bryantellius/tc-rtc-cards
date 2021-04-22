@@ -28,6 +28,15 @@
   transform: scale(0.7);
 }
 
+.unseen {
+  position: fixed;
+  right: 0px;
+  top: 0px;
+  opacity: 0;
+  width: 1rem;
+  height: 1rem;
+}
+
 #optionBtn {
   padding: 0.25rem;
   color: white;
