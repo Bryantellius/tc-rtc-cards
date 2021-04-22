@@ -69,7 +69,11 @@ function removeCard(id, strength) {
   cards.splice(0, 1);
   setTimeout(() => {
     document.getElementById(id).parentElement.remove();
-    addCard();
+    totalCardCount++;
+    if (totalCardCount === 200) {
+      addCard("joker-rare", "c");
+      totalCardCount = 0;
+    } else addCard();
     socket.emit("phone-throw-card", {
       computerId,
       suit: card.suit,
@@ -151,10 +155,7 @@ function getRandomSuit() {
 function createCards(n) {
   for (let i = 0; i < n; i++) {
     totalCardCount++;
-    if (totalCardCount === 200) {
-      addCard("joker-rare", "c");
-      totalCardCount = 0;
-    } else addCard();
+    addCard();
   }
 }
 
