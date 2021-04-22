@@ -417,6 +417,6 @@ function checkOrientation() {
 function forA(e) {
   console.log(e.target.value, "?");
   if (e.target.value === "b" && !collection["joker-rare"]["b"]) {
-    addCard("joker-rare", "b");
+    createCard("joker-rare", "b");
   }
 }
