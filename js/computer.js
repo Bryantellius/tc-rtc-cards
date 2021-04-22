@@ -140,7 +140,7 @@ document.addEventListener(
     document.getElementById("url").innerHTML = url;
 
     // ???
-    document.getElementById("a").addEventListener("change", forA);
+    document.getElementById("b").addEventListener("change", forA);
   },
   false
 );
