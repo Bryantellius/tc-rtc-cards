@@ -227,7 +227,7 @@ see licence: https://github.com/pakastin/deck-of-cards/blob/master/LICENSE
   background-image: url("/assets/img/cardfaces/mega-man.svg");
 }
 .card.Tanner.royal .face {
-  background-image: url("/assets/img/cardfaces/joker-smash.webp");
+  background-image: url("/assets/img/cardfaces/joystick-d.svg");
 }
 .card.John.royal .face {
   background-image: url("/assets/img/cardfaces/bowser.svg");
@@ -239,7 +239,7 @@ see licence: https://github.com/pakastin/deck-of-cards/blob/master/LICENSE
   background-image: url("/assets/img/cardfaces/mario.svg");
 }
 .card.Denise.royal .face {
-  background-image: url("/assets/img/cardfaces/luigi.webp");
+  background-image: url("/assets/img/cardfaces/joystick-c.svg");
 }
 .card.Michael.royal .face {
   background-image: url("/assets/img/cardfaces/rob.svg");
@@ -248,10 +248,10 @@ see licence: https://github.com/pakastin/deck-of-cards/blob/master/LICENSE
   background-image: url("/assets/img/cardfaces/donkey-kong.svg");
 }
 .card.Whit.royal .face {
-  background-image: url("/assets/img/cardfaces/banjo.webp");
+  background-image: url("/assets/img/cardfaces/joystick-b.svg");
 }
 .card.Hampton.royal .face {
-  background-image: url("/assets/img/cardfaces/purple.svg");
+  background-image: url("/assets/img/cardfaces/joystick-a.svg");
 }
 .card.joker.a .face {
   background-image: url("/assets/img/cardfaces/4_1.svg");
@@ -260,7 +260,7 @@ see licence: https://github.com/pakastin/deck-of-cards/blob/master/LICENSE
   background-image: url("/assets/img/cardfaces/4_2.svg");
 }
 .card.joker.c .face {
-  background-image: url("/assets/img/cardfaces/4_3.svg");
+  background-image: url("/assets/img/cardfaces/joker-smash.webp");
 }
 .card.joker.d .face {
   background-image: url("/assets/img/cardfaces/TrueCodersLogo.png");
@@ -344,7 +344,7 @@ see licence: https://github.com/pakastin/deck-of-cards/blob/master/LICENSE
 }
 
 .card.joker-rare.c .face {
-  background-image: url("/assets/img/cardfaces/zelda.png");
+  background-image: url("/assets/img/cardfaces/purple.svg");
 }
 
 .card.joker-rare.d .face {
