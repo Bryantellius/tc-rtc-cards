@@ -140,7 +140,7 @@ document.addEventListener(
     document.getElementById("url").innerHTML = url;
 
     // ???
-    document.getElementById("b").addEventListener("change", forA);
+    document.getElementById("b").addEventListener("click", forB);
   },
   false
 );
@@ -414,9 +414,9 @@ function checkOrientation() {
   window.addEventListener("orientationchange", checkOrientation);
 }
 
-function forA(e) {
-  console.log(e.target.value, "?");
-  if (e.target.value === "b" && !collection["joker-rare"]["b"]) {
-    createCard("joker-rare", "b");
+function forB() {
+  console.log("JOKER-RARE B");
+  if (totalCardCount > 0 && !collection["joker-rare"]["b"]) {
+    throwCard(createCard("joker-rare", "b"));
   }
 }

@@ -252,6 +252,7 @@ see licence: https://github.com/pakastin/deck-of-cards/blob/master/LICENSE
 }
 .card.Hampton.royal .face {
   background-image: url("/assets/img/cardfaces/joystick-a.svg");
+  background-size: 60%;
 }
 .card.joker.a .face {
   background-image: url("/assets/img/cardfaces/4_1.svg");
@@ -261,10 +262,12 @@ see licence: https://github.com/pakastin/deck-of-cards/blob/master/LICENSE
 }
 .card.joker.c .face {
   background-image: url("/assets/img/cardfaces/joker-smash.webp");
+  background-size: contain;
 }
 .card.joker.d .face {
-  background-image: url("/assets/img/cardfaces/TrueCodersLogo.png");
+  background-image: url("/assets/img/cardfaces/joker-d.png");
   background-size: contain;
+  background-position: 10px 0.50rem;
 }
 
 .royal {
@@ -337,6 +340,8 @@ see licence: https://github.com/pakastin/deck-of-cards/blob/master/LICENSE
 
 .card.joker-rare.a .face {
   background-image: url("/assets/img/cardfaces/2222.svg");
+  background-size: cover;
+  background-position: -1.25rem 1rem;
 }
 
 .card.joker-rare.b .face {

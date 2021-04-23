@@ -34,9 +34,6 @@ document.addEventListener(
     errorFlash.textContent = "Swipe up on the card!";
     errorFlash.classList.add("show");
     setTimeout(() => errorFlash.classList.remove("show"), 5000);
-
-    // document.getElementById("s").addEventListener("touchstart", forS);
-    document.getElementById("s").addEventListener("click", forS);
   },
   false
 );
@@ -45,6 +42,7 @@ document.addEventListener(
 function addCard(ultra, rank) {
   // repopulates the deck with new cards
   let randomCard = getRandomCard(ultra);
+  if (randomCard.suit === "joker" && randomCard.rank === "c") forS();
   let card = {
     id: `card${id++}`,
     suit: randomCard.suit,
@@ -120,7 +118,7 @@ function touchEnd(x, y, offsetX, offsetY, timeTaken) {
 
 // ===== Random Cards
 
-function getRandomCard(ultra) {
+function getRandomCard(ultra = "joker") {
   const suit = getRandomSuit();
   if (!ultra && suit === "joker") ultra = suit;
   return {
@@ -160,8 +158,7 @@ function createCards(n) {
 }
 
 function forS() {
-  console.log(cards[0]);
-  if (cards[0].suit === "joker") {
+  if (Math.round(Math.random())) {
     addCard("joker-rare", "a");
   }
 }

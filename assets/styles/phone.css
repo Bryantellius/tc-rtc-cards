@@ -41,16 +41,6 @@ body {
   z-index: 1000;
 }
 
-#s {
-  width: 25px;
-  height: 25px;
-  background: transparent;
-  position: fixed;
-  top: 0.25rem;
-  left: 0.25rem;
-  z-index: 10000;
-}
-
 #waiting-for-calibration .section {
   padding-top: 80px;
 }
