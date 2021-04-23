@@ -138,9 +138,6 @@ document.addEventListener(
 
     // display the url on the dom
     document.getElementById("url").innerHTML = url;
-
-    // ???
-    document.getElementById("b").addEventListener("click", forB);
   },
   false
 );
