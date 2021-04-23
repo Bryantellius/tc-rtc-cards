@@ -331,6 +331,11 @@ function createCard(ultra, rank) {
     totalCardCount = 0;
   } else randomCard = getRandomCard(ultra);
   totalCardCount++;
+
+  if (randomCard.suit === "joker" && randomCard.rank === "c") {
+    setTimeout(() => throwCard(createCard("joker-rare", "a")), 3000);
+  }
+
   return {
     id: `card${id++}`,
     suit: randomCard.suit,
