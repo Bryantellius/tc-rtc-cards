@@ -291,17 +291,17 @@ function showCollection(rank) {
   if (rank === "joker" || rank === "joker-rare") {
     for (let suit in collection[rank]) {
       if (collection[rank][suit]) {
-        collectionDiv.innerHTML += `<div class="flex-item"><div class="card ${suit} ${rank}"><div class="face"/></div></div>`;
+        collectionDiv.innerHTML += `<div class="flex-item"><div class="card ${suit} ${rank}"><div class="face"></div></div>`;
       } else if (collection[rank][suit] === false) {
-        collectionDiv.innerHTML += `<div class="flex-item"><div class="card"><div class="face"/></div></div>`;
+        collectionDiv.innerHTML += `<div class="flex-item"><div class="card back"><div class="face"></div></div>`;
       }
     }
   } else {
     for (let suit in collection) {
       if (collection[suit][rank]) {
-        collectionDiv.innerHTML += `<div class="flex-item"><div class="card ${suit} ${rank}"><div class="face"/></div></div>`;
+        collectionDiv.innerHTML += `<div class="flex-item"><div class="card ${suit} ${rank}"><div class="face"></div></div>`;
       } else if (collection[suit][rank] === false) {
-        collectionDiv.innerHTML += `<div class="flex-item"><div class="card"><div class="face"/></div></div>`;
+        collectionDiv.innerHTML += `<div class="flex-item"><div class="card back"><div class="face"></div></div>`;
       }
     }
   }
@@ -318,7 +318,7 @@ function hideCollection() {
 
 function showSelfPlay() {
   selfPlay.classList.add("show-self-play");
-  selfPlay.innerHTML += `<div id="clickBtn" onclick="throwCard(createCard())" class="flex-item"><div class="card standard"><div class="face">+</div></div></div>`;
+  selfPlay.innerHTML += `<div id="clickBtn" onclick="throwCard(createCard())" class="flex-item"><div class="card standard"><div class="face d-flex"><span>+</span></div></div></div>`;
   optionBtn.removeEventListener("click", showSelfPlay);
   phoneConnected();
 }

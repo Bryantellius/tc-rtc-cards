@@ -48,9 +48,11 @@ see licence: https://github.com/pakastin/deck-of-cards/blob/master/LICENSE
   background-repeat: no-repeat;
 }
 
-.card {
+.card.back {
   color: white;
-  background-image: linear-gradient(45deg, #fff, #ccc, 35%);
+  background-image: url(../img/cardfaces/TCCardBack.png);
+  background-position: 0%;
+  background-size: cover;
 }
 .card.joker,
 .card.joker-rare {
@@ -267,7 +269,7 @@ see licence: https://github.com/pakastin/deck-of-cards/blob/master/LICENSE
 .card.joker.d .face {
   background-image: url("/assets/img/cardfaces/joker-d.png");
   background-size: contain;
-  background-position: 10px 0.50rem;
+  background-position: 10px 0.5rem;
 }
 
 .royal {
@@ -333,7 +335,7 @@ see licence: https://github.com/pakastin/deck-of-cards/blob/master/LICENSE
 }
 
 .card.joker-rare {
-  animation: bg-animation 0.5s infinite linear;
+  animation: bg-animation 1s infinite linear;
   background: radial-gradient(ellipse at top, #bf953f, #fcf5b7, #a166ab),
     radial-gradient(ellipse at bottom, #1098ad, #07b39b, #6fba82);
 }
@@ -384,33 +386,33 @@ see licence: https://github.com/pakastin/deck-of-cards/blob/master/LICENSE
     transform: rotate(0deg);
   }
   10% {
-    transform: rotate(-3deg);
+    transform: rotate(-1deg);
   }
   20% {
     transform: rotate(0deg);
   }
   30% {
-    transform: rotate(3deg);
+    transform: rotate(1deg);
   }
   40% {
-    transform: rotate(0deg);
+    transform: rotate(-1deg);
   }
   50% {
-    transform: rotate(-3deg);
+    transform: rotate(0deg);
   }
   60% {
-    transform: rotate(0deg);
+    transform: rotate(1deg);
   }
   70% {
-    transform: rotate(3deg);
-  }
-  80% {
     transform: rotate(0deg);
   }
+  80% {
+    transform: rotate(-1deg);
+  }
   90% {
-    transform: rotate(-3deg);
+    transform: rotate(0deg);
   }
   100% {
-    transform: rotate(3deg);
+    transform: rotate(0deg);
   }
 }
