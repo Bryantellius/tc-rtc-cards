@@ -118,7 +118,7 @@ function touchEnd(x, y, offsetX, offsetY, timeTaken) {
 
 // ===== Random Cards
 
-function getRandomCard(ultra = "joker") {
+function getRandomCard(ultra) {
   const suit = getRandomSuit();
   if (!ultra && suit === "joker") ultra = suit;
   return {
